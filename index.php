@@ -10,6 +10,7 @@
         <th>Título</th>
         <th>Descrição</th>
         <th>Status</th>
+        <th>&nbsp;</th>
     </tr>
     <?php
     include "conexao.php";
@@ -22,9 +23,9 @@
             <td>
                 <?php
                 if($umaTarefa['status'] == 0){
-                    ?>
-                        <a href="editar-salvar.php" class="btn">✔</a>
-                    <?php
+                ?>
+                    <a href="editar-salvar.php?id=<?=$umaTarefa['id']?>" class="btn">✔</a>
+                <?php
                 }
                 ?>
             </td>
@@ -39,6 +40,9 @@
                     echo "Pendente";
                 }
                 ?>
+            </td>
+            <td>
+                <a href="excluir.php?id=<?=$umaTarefa['id']?>" class="btn" onclick="return confirm('Tem certeza que deseja deletar este registro ?')">❌</a>
             </td>
         </tr>
     <?php
